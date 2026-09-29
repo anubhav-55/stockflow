@@ -17,6 +17,11 @@ class Stock(Base):
         nullable = False,
         default = 0,
     )
+    # when quantity reaches this level , the product is considered low-stock
+    reorder_level: Mapped[int] = mapped_column(
+        nullable=False,
+        default=0,
+    )
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda:datetime.now(UTC),
