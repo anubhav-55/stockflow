@@ -1,11 +1,12 @@
 from fastapi import FastAPI
-from app.db.init_db import init_db
+
+from app.api.routes.categories import router as categories_router
+
+
 
 app = FastAPI(title="StockFlow API")
 
-# @app.on_event("startup")
-# def startup() -> None:
-# 	init_db()
+app.include_router(categories_router)
 
 @app.get("/health")
 def health_check():

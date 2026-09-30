@@ -47,11 +47,11 @@ class Product(Base):
         back_populates="products",
     )
     # One product has one current stock record.
-stock: Mapped["Stock"] = relationship(
+    stock: Mapped["Stock"] = relationship(
     back_populates="product",
     uselist=False,
 )
-# keeps the complete inventory movement history for this product.
-stock_movements: Mapped[list["StockMovement"]] = relationship(
-    back_populates="product"
+# keeps the complete inventory movement history for this product
+    stock_movements: Mapped[list["StockMovement"]] = relationship(
+    back_populates="product",
 )
