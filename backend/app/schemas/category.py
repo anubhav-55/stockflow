@@ -11,6 +11,10 @@ class CategoryBase(BaseModel):
 class CategoryCreate(CategoryBase):
     pass
 
+class CategoryUpdate(BaseModel):
+    name: str | None = None
+    description: str | None = None
+
 
 class CategoryResponse(CategoryBase):
     id: int
